@@ -1,0 +1,3 @@
+## 2024-11-08 - Haptic Feedback Accessibility in Non-Visual Mods
+**Learning:** Even in mods that explicitly aim to replace visual UI with audio and haptic feedback (like "Zero Screen UI"), haptic feedback itself can be a barrier for users with sensory processing sensitivities or RSI. Relying heavily on heavy controller vibration without an opt-out mechanism can cause physical discomfort or fatigue.
+**Action:** Always provide a configuration toggle to disable haptic feedback, even if the primary interaction paradigm of the mod relies on it. Ensuring players can choose between audio-only or audio-plus-haptic feedback provides a more inclusive experience.
