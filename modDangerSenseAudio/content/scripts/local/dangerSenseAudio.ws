@@ -91,6 +91,11 @@ function DangerSense_SlowMoDuration() : float
     return 0.45; // 慢动作持续现实时间（秒，给玩家充裕的闪避/破招时间）
 }
 
+function DangerSense_VibrationEnabled() : bool
+{
+    return true; // 是否开启手柄震动提示（为触觉敏感/RSI玩家提供关闭选项）
+}
+
 
 // ----------------------------------------------------------------------------
 // 二、 几何计算、视线盲区与敌意判定辅助函数
@@ -310,7 +315,10 @@ function TriggerDangerSenseAlert(isRanged : bool, attacker : CActor, optional fo
         }
 
         // 远程暗箭：轻度震动 (0.20秒)
-        theGame.VibrateControllerLight(0.20);
+        if (DangerSense_VibrationEnabled())
+        {
+            theGame.VibrateControllerLight(0.20);
+        }
     }
     else
     {
@@ -325,7 +333,10 @@ function TriggerDangerSenseAlert(isRanged : bool, attacker : CActor, optional fo
         }
 
         // 近战偷袭：结实重度震动 (0.25秒)
-        theGame.VibrateControllerHard(0.25);
+        if (DangerSense_VibrationEnabled())
+        {
+            theGame.VibrateControllerHard(0.25);
+        }
     }
 
     // 2. 触发慢动作子弹时间（只狼风格“危”字反应窗口）
@@ -474,7 +485,10 @@ exec function testDangerBank()
             thePlayer.DisplayHudMessage("【DangerSense】恭喜！只狼音效包 danger_sense.bnk 挂载成功！");
         }
         theSound.SoundEvent("danger_sense_melee");
-        theGame.VibrateControllerHard(0.25);
+        if (DangerSense_VibrationEnabled())
+        {
+            theGame.VibrateControllerHard(0.25);
+        }
     }
     else
     {
