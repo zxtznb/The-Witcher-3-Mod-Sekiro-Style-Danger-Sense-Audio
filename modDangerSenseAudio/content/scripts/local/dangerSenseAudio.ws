@@ -36,6 +36,12 @@ function DangerSense_RangedUseSekiroDangerSound() : bool
     return true;
 }
 
+// Accessibility: Visual fallback for hearing impaired or volume-off play
+function DangerSense_AccessibilityVisualCue() : bool
+{
+    return false; // Set to true to display "危" on screen
+}
+
 // 2. 原版备选音效（仅在自定义包关闭时兜底使用）
 function DangerSense_FallbackMeleeSound() : string
 {
@@ -326,6 +332,11 @@ function TriggerDangerSenseAlert(isRanged : bool, attacker : CActor, optional fo
 
         // 近战偷袭：结实重度震动 (0.25秒)
         theGame.VibrateControllerHard(0.25);
+    }
+
+    if (DangerSense_AccessibilityVisualCue())
+    {
+        thePlayer.DisplayHudMessage("危");
     }
 
     // 2. 触发慢动作子弹时间（只狼风格“危”字反应窗口）
