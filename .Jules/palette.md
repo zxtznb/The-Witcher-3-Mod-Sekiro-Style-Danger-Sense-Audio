@@ -1,0 +1,3 @@
+## 2026-11-10 - Hardcoded CJK Characters in WitcherScript HUD Messages
+**Learning:** Hardcoding CJK (Chinese, Japanese, Korean) characters in UI elements like `DisplayHudMessage` causes font display and missing glyph issues (rendering broken characters like '□') for players using non-CJK localized game clients, significantly degrading the user experience.
+**Action:** Always use English strings or refer to a localized string database instead of hardcoded CJK characters in mod UI elements and test commands.
