@@ -471,7 +471,7 @@ exec function testDangerBank()
     {
         if (thePlayer)
         {
-            thePlayer.DisplayHudMessage("【DangerSense】恭喜！只狼音效包 danger_sense.bnk 挂载成功！");
+            thePlayer.DisplayHudMessage("[DangerSense] Success! danger_sense.bnk is successfully loaded!");
         }
         theSound.SoundEvent("danger_sense_melee");
         theGame.VibrateControllerHard(0.25);
@@ -480,7 +480,7 @@ exec function testDangerBank()
     {
         if (thePlayer)
         {
-            thePlayer.DisplayHudMessage("【DangerSense】未检测到 danger_sense.bnk，请确认 soundspc.cache 路径。");
+            thePlayer.DisplayHudMessage("[DangerSense] Cannot find danger_sense.bnk, please check soundspc.cache path.");
         }
     }
 }
